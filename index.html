@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Logo-removebg-preview.png" type="png">
+    
+    <title>Numemory</title>
+    <style>
+      /* style.css */
+      body {
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: white;
+      }
+
+      .download-container {
+          text-align: center;
+      }
+
+      .download-link {
+          display: inline;
+          padding: 20px 40px;
+          font-size: 30px;
+          width: 30vw;
+          color: #fff;
+          background-color: #007bff;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: background-color 0.3s ease;
+      }
+
+      .download-link:hover {
+          background-color: #0056b3;
+      }
+
+      img{
+        display: block;
+        margin: auto;
+        width: 15vw;
+        text-align: center;
+      }
+      p{
+        font-size: 1vw;
+        padding: 25px;
+        width: 25vw;
+        padding-bottom: 15vh;
+        text-align: center;
+        margin: auto;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      p:nth-child(1){
+        padding-top: 10vh;
+        color: #FF1200;
+        text-decoration: underline;
+      }
+    </style>
+</head>
+<body>
+  <img src="Logo.png" alt="">
+  <p>Bem-vindo ao Numemory, o app que facilita a memorização de números, seja para aprender idiomas, estudar para provas ou aprimorar sua memória!
+  </p>
+    <div class="download-container">
+        <a href="numeros.py" class="download-link" id="download-link">BAIXAR</a>
+    </div>
+
+    <script>
+        document.getElementById('download-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '?download=true';
+        });
+    </script>
+</body>
+</html>
