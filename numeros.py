@@ -198,7 +198,6 @@ def fechar_janela():
 # Configuração da interface gráfica
 root = tk.Tk()
 root.title("Adivinhação de Números e Palavras")
-root.attributes('-fullscreen', True)
 
 # Adiciona um botão de fechar
 btn_fechar = tk.Button(root, text="Fechar", command=fechar_janela)
