@@ -15,7 +15,6 @@
         Sugestão Sophi: #f7ebff
     */
 
-    /* Reset e estilos básicos */
     * {
         margin: 0;
         padding: 0;
@@ -23,8 +22,7 @@
     }
     body {
         font-family: 'Inter', sans-serif;
-        /* AJUSTE 1: NOVO GRADIENTE DE FUNDO MAIS CLARO (Usando sugestão da Sophi) */
-        background: linear-gradient(135deg, #f7ebff, #964FF710); 
+        background: linear-gradient(135deg, #f7ebff, #964FF710);
         background-attachment: fixed;
         color: #1e293b;
         line-height: 1.6;
@@ -34,41 +32,50 @@
         text-decoration: none;
         color: inherit;
     }
-    /* ========================================= */
-    /* HEADER E NAV GERAL (Desktop First) */
-    /* ========================================= */
+
+    /* HEADER REFEITO */
     header {
-        background: linear-gradient(135deg, #964FF7, #14705E); 
+        background: linear-gradient(135deg, #964FF7, #14705E);
         color: white;
-        /* Ajustado padding e removido text-align: center; */
-        padding: 60px 50px 40px; 
-        position: relative;
-        overflow: hidden;
+        padding: 40px 50px 30px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        /* AJUSTE 2: FLEXBOX para alinhar conteúdo à esquerda */
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        position: relative;
     }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .header-text {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
     header h1 {
-        font-size: 3.2em;
-        margin-bottom: 5px;
+        font-size: 2.6em;
         font-weight: 800;
-        text-align: left; /* Garante alinhamento à esquerda */
+        margin: 0;
     }
+
     header p {
         font-size: 1.3em;
+        font-weight: 400;
         opacity: 0.95;
-        font-weight: 300;
-        margin-bottom: 20px;
-        text-align: left; /* Garante alinhamento à esquerda */
+        margin: 0;
     }
+
     .free-tag {
-        /* AJUSTE 3: Posicionamento absoluto para ir para o canto superior direito */
         display: inline-block;
-        background-color: #C5FBC6; 
+        background-color: #C5FBC6;
         color: #1e293b;
         padding: 8px 15px;
         border-radius: 25px;
@@ -77,51 +84,43 @@
         font-size: 0.9em;
         letter-spacing: 1px;
         animation: pulse 2s infinite;
-        
-        position: absolute; 
+        position: absolute;
         top: 20px;
-        right: 50px; 
-        margin: 0; 
+        right: 50px;
+        margin: 0;
         z-index: 10;
     }
+
     @keyframes pulse {
         0% { transform: scale(1); }
         50% { transform: scale(1.05); }
         100% { transform: scale(1); }
     }
 
-    /* Navegação Desktop */
     nav {
-        margin-top: 30px;
-        padding: 10px 0;
-        display: block; 
-        transition: max-height 0.3s ease-out, opacity 0.3s ease;
-        /* Alinha a navegação junto com o resto do conteúdo à esquerda */
-        align-self: flex-start;
+        margin-top: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
     }
+
     nav a {
-        margin: 0 18px;
         font-weight: 600;
         transition: color 0.3s ease, transform 0.3s ease;
         padding: 5px 10px;
-        position: relative;
     }
+
     nav a:hover {
-        color: #C5FBC6; 
+        color: #C5FBC6;
         transform: translateY(-2px);
     }
 
-    /* Estilo do Botão Hamburger (Escondido por padrão) */
-    .menu-toggle {
-        display: none; /* Esconde em desktop */
+    section {
+        max-width: 3000px; /* igual ao print */
+        margin: 20px auto;
+        padding: 10px 25px;
     }
 
-    /* Conteúdo Geral */
-    section {
-        max-width: 1100px;
-        margin: 70px auto;
-        padding: 0 25px;
-    }
     h2 {
         color: #964FF7;
         margin-bottom: 30px;
@@ -129,7 +128,7 @@
         display: inline-block;
         font-size: 2.2em;
     }
-    h2::after { 
+    h2::after {
         content: '';
         position: absolute;
         left: 0;
@@ -139,36 +138,42 @@
         background-color: #964FF7;
         border-radius: 2px;
     }
-    .card-grid {
-        display: grid;
-        /* Grid garante altura uniforme dos cards por padrão */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    /* === FUNCIONALIDADES (EM LINHA) === */
+    #benefits .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
         gap: 25px;
         margin-top: 20px;
     }
-    .card {
+
+    #benefits .feature {
+        flex: 1 1 300px;
         background: white;
         border-radius: 16px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
-        overflow: hidden;
+        padding: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover {
-        transform: translateY(-8px) rotateX(2deg); 
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+    #benefits .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
     }
-    
+
     .privacy-notice {
         margin-top: 20px;
         font-style: italic;
         color: #4a5568;
         font-size: 0.95em;
-        background-color: #D1A7EE40; 
+        background-color: #D1A7EE40;
         padding: 15px;
         border-left: 4px solid #964FF7;
         border-radius: 8px;
     }
+
     .cta-button {
         display: inline-block;
         background: linear-gradient(45deg, #964FF7, #14705E);
@@ -181,176 +186,104 @@
         margin-top: 25px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        box-shadow: 0 5px 15px rgba(150, 79, 247, 0.4); 
+        box-shadow: 0 5px 15px rgba(150, 79, 247, 0.4);
     }
+
     .cta-button:hover {
         background: linear-gradient(45deg, #14705E, #964FF7);
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(150, 79, 247, 0.6);
     }
+
     footer {
-        background-color: #14705E; 
+        background-color: #14705E;
         color: #f0f4f8;
         text-align: center;
         padding: 40px 20px;
         margin-top: 70px;
     }
-    
-    /* ========================================= */
-    /* RESPONSIVIDADE (VERSÃO MOBILE) */
-    /* ========================================= */
+
     @media (max-width: 768px) {
-        
-        header {
-            padding-top: 80px; 
-            /* AJUSTE MOBILE: Volta a centralizar no mobile */
-            text-align: center;
-            align-items: center;
-            padding-left: 20px; 
-            padding-right: 20px;
-        }
-        header h1, header p {
-            text-align: center; /* Centraliza textos no mobile */
-        }
-
-        /* AJUSTE MOBILE: Volta o .free-tag a ser estático (em fluxo) */
-        .free-tag {
-            position: static; 
-            margin-bottom: 25px; 
-            top: auto;
-            right: auto;
-        }
-
-        /* CORREÇÃO DO HAMBURGER: Usando Flexbox para centralização perfeita */
-        .menu-toggle {
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            
-            position: fixed; 
-            top: 15px;
-            right: 15px;
-            background-color: #964FF7; 
-            color: #C5FBC6; 
-            
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 25px;
-            z-index: 10000; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.2s;
-        }
-        .menu-toggle:active {
-             background-color: #14705E;
-        }
-
-
-        /* Navegação Mobile (Menu lateral) */
-        nav {
-            display: flex; 
+        .header-text {
             flex-direction: column;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 70%; 
-            height: 100vh;
-            background-color: #14705E; 
-            padding-top: 80px; 
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-            transform: translateX(100%); 
-            transition: transform 0.3s ease-out;
-            z-index: 9999;
-            align-self: center; 
+            align-items: flex-start;
+            gap: 5px;
         }
-
-        /* Classe para mostrar o menu via JavaScript */
-        nav.open {
-            transform: translateX(0); 
+        header {
+            padding: 30px 25px;
         }
-
-        nav a {
-            display: block; 
-            margin: 0;
-            padding: 15px 25px;
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: left;
-            font-size: 1.1em;
+        .free-tag {
+            right: 25px;
         }
-        nav a:hover {
-            background-color: #964FF7;
+        nav {
+            margin-top: 20px;
+            justify-content: flex-start;
         }
-
-        /* Outras adaptações mobile */
-        .card-grid {
-            grid-template-columns: 1fr;
-        }
-        section {
-            margin: 50px auto;
-            padding: 0 15px;
+        #benefits .features {
+            flex-direction: column;
         }
     }
 </style>
 </head>
 <body>
 
-<button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu de Navegação">
-    &#9776; </button>
-
 <header>
     <div class="free-tag animate__animated animate__bounceIn">
         Gratuito para Validação de Produto
     </div>
-    <h1 class="animate__animated animate__fadeInDown">Looksy</h1>
-    <p class="animate__animated animate__fadeInUp">Inteligência Comercial para Lojas Físicas</p>
-    
-    <nav id="main-nav">
-        <a href="#why-us">Por Que Agora</a>
-        <a href="#proposal">Proposta</a>
-        <a href="#benefits">Funcionalidades</a>
-        <a href="#founders">Fundador</a>
-        <a href="#contact">Contato</a>
-    </nav>
+
+    <div class="header-content">
+        <div class="header-text animate__animated animate__fadeInDown">
+            <h1>Looksy</h1>
+            <p>Inteligência Comercial para Lojas Físicas</p>
+        </div>
+
+        <nav id="main-nav">
+            <a href="#why-us">Por Que Agora</a>
+            <a href="#proposal">Proposta</a>
+            <a href="#benefits">Funcionalidades</a>
+            <a href="#founders">Fundador</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </div>
 </header>
 
 <section id="why-us" class="animate__animated animate__fadeIn">
     <h2>Validação Sem Risco</h2>
     <p>
-        Estamos na fase inicial de validação do produto. Por isso, oferecemos o **Looksy de forma totalmente GRATUITA** neste momento. Queremos apenas provar o valor da nossa IA na prática para o seu negócio.
+        Estamos na fase inicial de validação do produto. Por isso, oferecemos o <strong>Looksy de forma totalmente GRATUITA</strong> neste momento. Queremos apenas provar o valor da nossa IA na prática para o seu negócio.
     </p>
     <div class="privacy-notice animate__animated animate__fadeInUp" style="margin-top: 30px;">
         <strong>Compromisso com a Privacidade:</strong>
-        <p>Durante a validação, sua segurança é fundamental. Informamos que **NÃO teremos acesso direto aos seus dados de clientes** ou planilhas de forma bruta. Apenas processaremos os insights gerados pela IA no seu ambiente para provar nossa eficácia, mantendo suas informações confidenciais.</p>
+        <p>Durante a validação, sua segurança é fundamental. Informamos que <strong>NÃO teremos acesso direto aos seus dados de clientes</strong> ou planilhas de forma bruta. Apenas processaremos os insights gerados pela IA no seu ambiente para provar nossa eficácia, mantendo suas informações confidenciais.</p>
     </div>
     <a href="#contact" class="cta-button animate__animated animate__pulse">Quero Validar Grátis Agora!</a>
 </section>
 
-
 <section id="proposal" class="animate__animated animate__fadeInUp">
     <h2>Proposta</h2>
     <p>
-        O **Looksy** é uma plataforma de Inteligência Artificial que integra planilhas de vendas e câmeras de segurança para gerar insights em tempo real sobre o comportamento de clientes e o desempenho de lojas físicas. 
+        O <strong>Looksy</strong> é uma plataforma de Inteligência Artificial que integra planilhas de vendas e câmeras de segurança para gerar insights em tempo real sobre o comportamento de clientes e o desempenho de lojas físicas.
         Nossa solução permite prever vendas, identificar tendências de consumo, otimizar promoções e reorganizar produtos estrategicamente para aumentar a eficiência operacional e a receita.
     </p>
 </section>
 
 <section id="benefits">
     <h2 class="animate__animated animate__fadeInLeft">Funcionalidades Chave</h2>
-    <div class="card-grid">
-        <div class="card animate__animated animate__fadeInUp">
+    <div class="features">
+        <div class="feature animate__animated animate__fadeInUp">
             <h3>Previsão de Vendas</h3>
             <p>Analisa dados históricos e comportamento de clientes para prever tendências de vendas futuras com alta precisão.</p>
         </div>
-        <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+        <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
             <h3>Identificação de Tendências</h3>
             <p>Detecta padrões de consumo e comportamento, ajudando a planejar promoções e estratégias de marketing mais eficazes.</p>
         </div>
-        <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
             <h3>Otimização do Layout</h3>
             <p>Reorganiza produtos na loja de forma estratégica, baseada em análise de fluxo e permanência, para aumentar a conversão.</p>
         </div>
-        <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+        <div class="feature animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
             <h3>Análise do Fluxo de Clientes</h3>
             <p>Monitoramento inteligente do movimento de clientes (heatmap e zonas de calor) para decisões baseadas em dados reais de tráfego.</p>
         </div>
@@ -363,20 +296,20 @@
         <div class="founder-card animate__animated animate__zoomIn">
             <h3>Luiz Filipe Seabra de Marco</h3>
             <p>
-                Jovem inovador de 17 anos do Brasil, com experiência em **pesquisa ambiental alinhada à ONU** e criador de tecnologias de impacto social, como:
-                <ul>
-                    <li>**Nano-Wait** — Tecnologia Python com **3.500+ downloads**;</li>
-                    <li>**ConnectVoice** — plataforma que ajuda pessoas **tetraplégicas e com deficiências motoras** a se comunicarem;</li>
-                    <li>Colaboração em **projetos de sustentabilidade urbana** usando IA, apoiado pela ONU.</li>
-                </ul>
+                Jovem inovador de 17 anos do Brasil, com experiência em <strong>pesquisa ambiental alinhada à ONU</strong> e criador de tecnologias de impacto social, como:
             </p>
+            <ul>
+                <li><strong>Nano-Wait</strong> — Tecnologia Python com <strong>3.500+ downloads</strong>;</li>
+                <li><strong>ConnectVoice</strong> — plataforma que ajuda pessoas <strong>tetraplégicas e com deficiências motoras</strong> a se comunicarem;</li>
+                <li>Colaboração em <strong>projetos de sustentabilidade urbana</strong> usando IA, apoiado pela ONU.</li>
+            </ul>
         </div>
     </div>
 </section>
 
 <section id="contact">
     <h2 class="animate__animated animate__fadeInRight">Entre em Contato</h2>
-    <p>Fale conosco para iniciar a validação **GRATUITA** do Looksy e transformar a inteligência da sua loja:</p>
+    <p>Fale conosco para iniciar a validação <strong>GRATUITA</strong> do Looksy e transformar a inteligência da sua loja:</p>
     <p style="font-size: 1.2em; font-weight: 600; color: #964FF7;">Telefone: +55 24 99945-7556</p>
     <a href="https://wa.me/5524999457556" target="_blank" class="cta-button" style="background: #25d366; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);">
         Mande um WhatsApp Agora
@@ -387,31 +320,6 @@
     <p>© 2025 Looksy | Todos os direitos reservados</p>
     <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.8;">Projeto em fase de validação gratuita.</p>
 </footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById('menu-toggle');
-        const mainNav = document.getElementById('main-nav');
-        const navLinks = mainNav.querySelectorAll('a');
-
-        // Função para alternar a classe 'open'
-        function toggleMenu() {
-            mainNav.classList.toggle('open');
-        }
-
-        // 1. Alterna o menu ao clicar no botão hamburger
-        menuToggle.addEventListener('click', toggleMenu);
-
-        // 2. Fecha o menu ao clicar em qualquer link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNav.classList.contains('open')) {
-                    mainNav.classList.remove('open');
-                }
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
