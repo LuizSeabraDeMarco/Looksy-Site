@@ -2,24 +2,17 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Looksy — Inteligência Comercial para Lojas</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Looksy — Inteligência Comercial para Lojas</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <style>
     /* Nova Paleta:
-       Roxo Principal: #964FF7
-       Verde Escuro/Teal: #14705E
-       Verde Claro/Menta: #C5FBC6
-       Lilás Claro: #D1A7EE
+        Roxo Principal: #964FF7
+        Verde Escuro/Teal: #14705E
+        Verde Claro/Menta: #C5FBC6
+        Lilás Claro: #D1A7EE
+        Sugestão Sophi: #f7ebff
     */
 
     /* Reset e estilos básicos */
@@ -30,8 +23,8 @@
     }
     body {
         font-family: 'Inter', sans-serif;
-        /* MUDANÇA: Novo Gradiente de Fundo (Lilás Claro e Roxo Principal) */
-        background: linear-gradient(135deg, #D1A7EE, #964FF720); 
+        /* AJUSTE 1: NOVO GRADIENTE DE FUNDO MAIS CLARO (Usando sugestão da Sophi) */
+        background: linear-gradient(135deg, #f7ebff, #964FF710); 
         background-attachment: fixed;
         color: #1e293b;
         line-height: 1.6;
@@ -45,30 +38,35 @@
     /* HEADER E NAV GERAL (Desktop First) */
     /* ========================================= */
     header {
-        /* MUDANÇA: Novo Gradiente de Header (Roxo Principal e Verde Escuro) */
         background: linear-gradient(135deg, #964FF7, #14705E); 
         color: white;
-        padding: 60px 20px 40px;
-        text-align: center;
+        /* Ajustado padding e removido text-align: center; */
+        padding: 60px 50px 40px; 
         position: relative;
         overflow: hidden;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        /* AJUSTE 2: FLEXBOX para alinhar conteúdo à esquerda */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     header h1 {
         font-size: 3.2em;
         margin-bottom: 5px;
         font-weight: 800;
+        text-align: left; /* Garante alinhamento à esquerda */
     }
     header p {
         font-size: 1.3em;
         opacity: 0.95;
         font-weight: 300;
         margin-bottom: 20px;
+        text-align: left; /* Garante alinhamento à esquerda */
     }
     .free-tag {
-        /* MUDANÇA: Cor de Destaque (Verde Claro) */
+        /* AJUSTE 3: Posicionamento absoluto para ir para o canto superior direito */
         display: inline-block;
         background-color: #C5FBC6; 
         color: #1e293b;
@@ -77,9 +75,14 @@
         font-weight: 700;
         text-transform: uppercase;
         font-size: 0.9em;
-        margin-bottom: 25px;
         letter-spacing: 1px;
         animation: pulse 2s infinite;
+        
+        position: absolute; 
+        top: 20px;
+        right: 50px; 
+        margin: 0; 
+        z-index: 10;
     }
     @keyframes pulse {
         0% { transform: scale(1); }
@@ -93,6 +96,8 @@
         padding: 10px 0;
         display: block; 
         transition: max-height 0.3s ease-out, opacity 0.3s ease;
+        /* Alinha a navegação junto com o resto do conteúdo à esquerda */
+        align-self: flex-start;
     }
     nav a {
         margin: 0 18px;
@@ -102,7 +107,6 @@
         position: relative;
     }
     nav a:hover {
-        /* MUDANÇA: Hover na navegação (Verde Claro) */
         color: #C5FBC6; 
         transform: translateY(-2px);
     }
@@ -119,7 +123,6 @@
         padding: 0 25px;
     }
     h2 {
-        /* MUDANÇA: Títulos (Roxo Principal) */
         color: #964FF7;
         margin-bottom: 30px;
         position: relative;
@@ -133,12 +136,12 @@
         bottom: -5px;
         height: 4px;
         width: 100%;
-        /* MUDANÇA: Sublinhado do Título (Roxo Principal) */
         background-color: #964FF7;
         border-radius: 2px;
     }
     .card-grid {
         display: grid;
+        /* Grid garante altura uniforme dos cards por padrão */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
         margin-top: 20px;
@@ -161,16 +164,13 @@
         font-style: italic;
         color: #4a5568;
         font-size: 0.95em;
-        /* MUDANÇA: Fundo do Aviso de Privacidade (Lilás Claro) */
         background-color: #D1A7EE40; 
         padding: 15px;
-        /* MUDANÇA: Borda do Aviso de Privacidade (Roxo Principal) */
         border-left: 4px solid #964FF7;
         border-radius: 8px;
     }
     .cta-button {
         display: inline-block;
-        /* MUDANÇA: Gradiente do Botão CTA (Roxo Principal para Verde Escuro) */
         background: linear-gradient(45deg, #964FF7, #14705E);
         color: white;
         padding: 15px 35px;
@@ -181,17 +181,14 @@
         margin-top: 25px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        /* MUDANÇA: Sombra do Botão CTA (Baseada no Roxo Principal) */
         box-shadow: 0 5px 15px rgba(150, 79, 247, 0.4); 
     }
     .cta-button:hover {
-        /* MUDANÇA: Gradiente Hover (Invertido) */
         background: linear-gradient(45deg, #14705E, #964FF7);
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(150, 79, 247, 0.6);
     }
     footer {
-        /* MUDANÇA: Fundo do Footer (Verde Escuro) */
         background-color: #14705E; 
         color: #f0f4f8;
         text-align: center;
@@ -206,35 +203,45 @@
         
         header {
             padding-top: 80px; 
+            /* AJUSTE MOBILE: Volta a centralizar no mobile */
             text-align: center;
+            align-items: center;
+            padding-left: 20px; 
+            padding-right: 20px;
+        }
+        header h1, header p {
+            text-align: center; /* Centraliza textos no mobile */
+        }
+
+        /* AJUSTE MOBILE: Volta o .free-tag a ser estático (em fluxo) */
+        .free-tag {
+            position: static; 
+            margin-bottom: 25px; 
+            top: auto;
+            right: auto;
         }
 
         /* CORREÇÃO DO HAMBURGER: Usando Flexbox para centralização perfeita */
         .menu-toggle {
-            display: flex; /* MUDANÇA CHAVE: Ativa o Flexbox */
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
             
             position: fixed; 
             top: 15px;
             right: 15px;
-            /* MUDANÇA: Fundo do Hamburger (Roxo Principal) */
             background-color: #964FF7; 
-            /* MUDANÇA: Cor do Ícone (Verde Claro) */
             color: #C5FBC6; 
             
             border-radius: 50%;
             width: 45px;
             height: 45px;
-            /* REMOVIDO: line-height: 45px; (o Flexbox cuida disso) */
-            /* REMOVIDO: text-align: center; (o Flexbox cuida disso) */
             font-size: 25px;
             z-index: 10000; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: background-color 0.2s;
         }
         .menu-toggle:active {
-            /* MUDANÇA: Ativo/Hover do Hamburger (Verde Escuro) */
              background-color: #14705E;
         }
 
@@ -248,13 +255,13 @@
             right: 0;
             width: 70%; 
             height: 100vh;
-            /* MUDANÇA: Fundo do Menu Gaveta (Verde Escuro) */
             background-color: #14705E; 
             padding-top: 80px; 
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
             transform: translateX(100%); 
             transition: transform 0.3s ease-out;
             z-index: 9999;
+            align-self: center; 
         }
 
         /* Classe para mostrar o menu via JavaScript */
@@ -272,7 +279,6 @@
             font-size: 1.1em;
         }
         nav a:hover {
-            /* MUDANÇA: Hover do item do Menu (Roxo Principal) */
             background-color: #964FF7;
         }
 
@@ -311,11 +317,11 @@
 <section id="why-us" class="animate__animated animate__fadeIn">
     <h2>Validação Sem Risco</h2>
     <p>
-        Estamos na fase inicial de validação do produto. Por isso, oferecemos o <strong>Looksy de forma totalmente GRATUITA</strong> neste momento. Queremos apenas provar o valor da nossa IA na prática para o seu negócio.
+        Estamos na fase inicial de validação do produto. Por isso, oferecemos o **Looksy de forma totalmente GRATUITA** neste momento. Queremos apenas provar o valor da nossa IA na prática para o seu negócio.
     </p>
     <div class="privacy-notice animate__animated animate__fadeInUp" style="margin-top: 30px;">
         <strong>Compromisso com a Privacidade:</strong>
-        <p>Durante a validação, sua segurança é fundamental. Informamos que <strong>NÃO teremos acesso direto aos seus dados de clientes</strong> ou planilhas de forma bruta. Apenas processaremos os insights gerados pela IA no seu ambiente para provar nossa eficácia, mantendo suas informações confidenciais.</p>
+        <p>Durante a validação, sua segurança é fundamental. Informamos que **NÃO teremos acesso direto aos seus dados de clientes** ou planilhas de forma bruta. Apenas processaremos os insights gerados pela IA no seu ambiente para provar nossa eficácia, mantendo suas informações confidenciais.</p>
     </div>
     <a href="#contact" class="cta-button animate__animated animate__pulse">Quero Validar Grátis Agora!</a>
 </section>
@@ -324,7 +330,7 @@
 <section id="proposal" class="animate__animated animate__fadeInUp">
     <h2>Proposta</h2>
     <p>
-        O <strong>Looksy</strong> é uma plataforma de Inteligência Artificial que integra planilhas de vendas e câmeras de segurança para gerar insights em tempo real sobre o comportamento de clientes e o desempenho de lojas físicas. 
+        O **Looksy** é uma plataforma de Inteligência Artificial que integra planilhas de vendas e câmeras de segurança para gerar insights em tempo real sobre o comportamento de clientes e o desempenho de lojas físicas. 
         Nossa solução permite prever vendas, identificar tendências de consumo, otimizar promoções e reorganizar produtos estrategicamente para aumentar a eficiência operacional e a receita.
     </p>
 </section>
@@ -357,11 +363,11 @@
         <div class="founder-card animate__animated animate__zoomIn">
             <h3>Luiz Filipe Seabra de Marco</h3>
             <p>
-                Jovem inovador de 17 anos do Brasil, com experiência em <strong>pesquisa ambiental alinhada à ONU</strong> e criador de tecnologias de impacto social, como:
+                Jovem inovador de 17 anos do Brasil, com experiência em **pesquisa ambiental alinhada à ONU** e criador de tecnologias de impacto social, como:
                 <ul>
-                    <li><strong>Nano-Wait</strong> — Tecnologia Python com <strong>3.500+ downloads</strong>;</li>
-                    <li><strong>ConnectVoice</strong> — plataforma que ajuda pessoas <strong>tetraplégicas e com deficiências motoras</strong> a se comunicarem;</li>
-                    <li>Colaboração em <strong>projetos de sustentabilidade urbana</strong> usando IA, apoiado pela ONU.</li>
+                    <li>**Nano-Wait** — Tecnologia Python com **3.500+ downloads**;</li>
+                    <li>**ConnectVoice** — plataforma que ajuda pessoas **tetraplégicas e com deficiências motoras** a se comunicarem;</li>
+                    <li>Colaboração em **projetos de sustentabilidade urbana** usando IA, apoiado pela ONU.</li>
                 </ul>
             </p>
         </div>
@@ -370,7 +376,7 @@
 
 <section id="contact">
     <h2 class="animate__animated animate__fadeInRight">Entre em Contato</h2>
-    <p>Fale conosco para iniciar a validação <strong>GRATUITA</strong> do Looksy e transformar a inteligência da sua loja:</p>
+    <p>Fale conosco para iniciar a validação **GRATUITA** do Looksy e transformar a inteligência da sua loja:</p>
     <p style="font-size: 1.2em; font-weight: 600; color: #964FF7;">Telefone: +55 24 99945-7556</p>
     <a href="https://wa.me/5524999457556" target="_blank" class="cta-button" style="background: #25d366; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);">
         Mande um WhatsApp Agora
@@ -409,5 +415,3 @@
 
 </body>
 </html>
-</head>
-<body>
