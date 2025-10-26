@@ -12,9 +12,11 @@
         Verde Escuro/Teal: #14705E
         Verde Claro/Menta: #C5FBC6
         Lilás Claro: #D1A7EE
-        Sugestão Sophi: #f7ebff
     */
 
+    /* ========================================= */
+    /* ESTILOS GERAIS E LAYOUT DESKTOP/PADRÃO */
+    /* ========================================= */
     * {
         margin: 0;
         padding: 0;
@@ -44,6 +46,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        text-align: left;
     }
 
     .header-content {
@@ -73,6 +76,7 @@
         margin: 0;
     }
 
+    /* FREE TAG (POSICIONAMENTO DESKTOP) */
     .free-tag {
         display: inline-block;
         background-color: #C5FBC6;
@@ -84,7 +88,7 @@
         font-size: 0.9em;
         letter-spacing: 1px;
         animation: pulse 2s infinite;
-        position: absolute;
+        position: absolute; /* Posicionamento desktop (canto superior) */
         top: 20px;
         right: 50px;
         margin: 0;
@@ -97,11 +101,13 @@
         100% { transform: scale(1); }
     }
 
+    /* Navegação Desktop */
     nav {
         margin-top: 25px;
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
+        transition: none;
     }
 
     nav a {
@@ -114,11 +120,17 @@
         color: #C5FBC6;
         transform: translateY(-2px);
     }
+    
+    .menu-toggle {
+        display: none;
+    }
 
+    /* SEÇÕES E ELEMENTOS */
     section {
-        max-width: 3000px; /* igual ao print */
-        margin: 20px auto;
-        padding: 10px 25px;
+        max-width: 1100px;
+        margin: 70px auto;
+        padding: 0 25px;
+        text-align: left;
     }
 
     h2 {
@@ -139,28 +151,35 @@
         border-radius: 2px;
     }
 
-    /* === FUNCIONALIDADES (EM LINHA) === */
+    /* === FUNCIONALIDADES (LAYOUT DE CARDS) === */
     #benefits .features {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: stretch;
-        gap: 25px;
+        justify-content: space-between;
+        align-items: flex-start; /* Permite que os cards tenham altura ajustada ao conteúdo */
+        gap: 20px;
         margin-top: 20px;
     }
 
     #benefits .feature {
-        flex: 1 1 300px;
+        flex: 1 1 200px; /* Garante que 4 cards caibam na linha em telas maiores */
         background: white;
         border-radius: 16px;
-        padding: 20px;
+        /* AJUSTE: Redução do padding vertical para tornar o card mais compacto (horizontal) */
+        padding: 25px; 
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: auto;
     }
 
     #benefits .feature:hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    #benefits h3 {
+        color: #14705E;
+        margin-bottom: 10px;
     }
 
     .privacy-notice {
@@ -195,6 +214,25 @@
         box-shadow: 0 8px 20px rgba(150, 79, 247, 0.6);
     }
 
+    /* CARD FUNDADOR (AJUSTE DESKTOP: Alinhado à esquerda e largura total) */
+    .founder-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        max-width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+    .founder-card ul {
+        margin-top: 15px;
+        margin-left: 20px;
+        list-style: disc;
+    }
+    .founder-card li {
+        margin-bottom: 5px;
+    }
+
     footer {
         background-color: #14705E;
         color: #f0f4f8;
@@ -203,29 +241,129 @@
         margin-top: 70px;
     }
 
+    /* ========================================= */
+    /* RESPONSIVIDADE (VERSÃO MOBILE) */
+    /* ========================================= */
     @media (max-width: 768px) {
-        .header-text {
+        
+        /* HEADER MOBILE: Centralizado e mais compacto */
+        header {
+            padding: 80px 25px 40px;
+            text-align: center;
+        }
+
+        /* FREE TAG (REPOSICIONAMENTO MOBILE) - Separado do título */
+        .free-tag {
+            position: static;
+            margin: 0 auto 15px auto;
+            right: auto;
+            top: auto;
+            transform: none;
+        }
+
+        .header-content {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 5px;
         }
-        header {
-            padding: 30px 25px;
-        }
-        .free-tag {
-            right: 25px;
-        }
-        nav {
-            margin-top: 20px;
-            justify-content: flex-start;
-        }
-        #benefits .features {
+
+        .header-text {
             flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* BOTÃO HAMBURGER (Menu-Toggle) */
+        .menu-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: #964FF7;
+            color: #C5FBC6;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 25px;
+            z-index: 10000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s;
+        }
+        
+        .menu-toggle:active {
+            background-color: #14705E;
+        }
+
+        /* NAVEGAÇÃO MOBILE (Menu Gaveta Lateral) */
+        nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: #14705E;
+            padding-top: 80px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+            z-index: 9999;
+        }
+
+        /* Classe ativada por JS para MOSTRAR o menu */
+        nav.open {
+            transform: translateX(0);
+        }
+
+        nav a {
+            display: block;
+            margin: 0;
+            padding: 15px 25px;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            font-size: 1.1em;
+            transform: none;
+        }
+        
+        nav a:hover {
+            background-color: #964FF7;
+            color: white;
+        }
+
+        /* Ajustes de layout da seção de Funcionalidades para quebrar linha no mobile */
+        #benefits .features {
+            flex-direction: column; /* Força o empilhamento vertical no mobile */
+            gap: 20px;
+        }
+        
+        /* Otimização da seção Fundador para Mobile */
+        .founder-card {
+             max-width: 100%;
+             margin: 0 auto;
+             text-align: left;
+        }
+
+        /* Ajuste de margem/padding e alinhamento do texto da seção no mobile */
+        section {
+            margin: 50px auto;
+            padding: 0 15px;
+            text-align: left;
         }
     }
 </style>
 </head>
 <body>
+
+<button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu de Navegação">
+    &#9776; 
+</button>
 
 <header>
     <div class="free-tag animate__animated animate__bounceIn">
@@ -320,6 +458,28 @@
     <p>© 2025 Looksy | Todos os direitos reservados</p>
     <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.8;">Projeto em fase de validação gratuita.</p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const navLinks = mainNav.querySelectorAll('a');
+        
+        function toggleMenu() {
+            mainNav.classList.toggle('open');
+        }
+        
+        menuToggle.addEventListener('click', toggleMenu);
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('open')) {
+                    mainNav.classList.remove('open');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
